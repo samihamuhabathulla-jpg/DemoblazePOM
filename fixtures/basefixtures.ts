@@ -1,25 +1,22 @@
-import { test as base, expect}from '@playwright/test';
-import {LoginPage}from '../pages/LoginPage';
-import {CartPage}from '../pages/CartPage';
-import {InvalidPage}from '../pages/InvalidPage';
+import { test as base, expect } from '@playwright/test';
+import { LoginPage } from '../pages/LoginPage';
+import { CartPage } from '../pages/CartPage';
 
-type Fixture = {
-    loginPage:LoginPage;
-    cartPage:CartPage;
-    invalidPage:InvalidPage;
-}
+type MyFixtures = {
+    loginPage: LoginPage;
+    cartPage: CartPage;
+};
 
-export const test = base.extend<Fixture>({
+export const test = base.extend<MyFixtures>({
 
-    loginPage:async({page},use)=>{
-        await use (new LoginPage(page));
+    loginPage: async ({ page }, use) => {
+        await use(new LoginPage(page));
     },
-    cartPage: async({page},use)=>{
-        await use (new CartPage(page));
-    },
-    invalidPage:async({page},use)=>{
-        await use(new InvalidPage(page));
+
+    cartPage: async ({ page }, use) => {
+        await use(new CartPage(page));
     }
+
 });
 
-export {expect};
+export { expect };

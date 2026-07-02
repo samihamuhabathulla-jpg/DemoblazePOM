@@ -1,4 +1,4 @@
-import { Page, Locator, } from '@playwright/test';
+import { Page, Locator, expect } from '@playwright/test';
 
 export class LoginPage {
     readonly page: Page;
@@ -11,6 +11,7 @@ export class LoginPage {
 
     constructor(page: Page) {
         this.page = page;
+
         this.clicklogin = page.locator('#login2');
         this.username = page.locator('#loginusername');
         this.password = page.locator('#loginpassword');
@@ -19,7 +20,7 @@ export class LoginPage {
     }
 
     async navigate() {
-        await this.page.goto("/");
+        await this.page.goto('/');
     }
 
     async login(username: string, password: string) {
@@ -27,7 +28,10 @@ export class LoginPage {
 
         await this.username.fill(username);
         await this.password.fill(password);
+
         await this.loginbutton.click();
-        await this.page.waitForTimeout(2000);
+        await expect(this.userloggedname).toContainText("Welcome", {
+            timeout: 10000
+        });
     }
 }
