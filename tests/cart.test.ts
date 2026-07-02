@@ -1,7 +1,7 @@
 import {test,expect} from '../fixtures/basefixtures';
 import loginData from '../test-data/loginData.json';
 
-test.describe('Cart Test',()=>{
+test.describe('Cart Test @smoke',()=>{
     test.beforeEach(async({loginPage})=>{
         await loginPage.navigate();
         await loginPage.login(

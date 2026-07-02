@@ -2,6 +2,10 @@
     "valid":{
         "username":"samihaM",
         "password":"2005"
-    }
+    },
 
+    "invalid":{
+        "username":"samiha",
+        "password":"5002"
+    }
 }

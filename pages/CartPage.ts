@@ -11,7 +11,7 @@ export class CartPage{
         this.product=page.locator('//a[text()="Samsung galaxy s6"]');
         this.cartclick=page.locator('//a[@onclick="addToCart(1)"]');
         this.cart=page.locator('#cartur');
-        this.carttitle=page.locator("//td[text()='Samsung galaxy s6']");
+        this.carttitle = page.locator("//td[text()='Samsung galaxy s6']").first();
 
     }
     async addtocart(){

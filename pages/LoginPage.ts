@@ -1,4 +1,4 @@
-import { Page, Locator, expect } from '@playwright/test';
+import { Page, Locator, } from '@playwright/test';
 
 export class LoginPage {
     readonly page: Page;
@@ -19,7 +19,7 @@ export class LoginPage {
     }
 
     async navigate() {
-        await this.page.goto("https://www.demoblaze.com/");
+        await this.page.goto("/");
     }
 
     async login(username: string, password: string) {
